@@ -38,6 +38,7 @@ function firstName($email){
     <!--Copyright 2010 Scriptoid s.r.l-->
     <head>
         <title>My diagrams - Diagramo</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=9" />
         <link rel="stylesheet" media="screen" type="text/css" href="assets/css/style.css" />
         <script type="text/javascript">
             function confirmation(message){
@@ -124,14 +125,13 @@ function firstName($email){
                     <? for ($i=0; $i < count($myDiagrams); $i++) {
                          $myDiagram = $myDiagrams[$i];
                         //$svgLink = $url . '/diagram/' . $myDiagrams->hash . '.svg';
-                        $svgLink = sprintf('./raster.php?hash=%s&type=png', $myDiagram->hash);
+                        $svgLink = sprintf('./raster.php?hash=%s&type=svg', $myDiagram->hash);
+                        $pngLink = sprintf('./raster.php?hash=%s&type=png', $myDiagram->hash);
                     ?>
                         <tr>
                             <td align="center">
                                 <a href="./editor.php?diagramId=<?=$myDiagram->id ?>">               
-                                    <object type="image/svg+xml" data="<?=$svgLink?>" width="100" >
-                                        <img style="background-color: white; border: 1px solid #CCCCCC;" width="100" height="100" src="<?=$svgLink?>"/>
-                                    </object>
+                                    <img style="background-color: white; border: 1px solid #CCCCCC;" width="100" height="100" src="<?=$pngLink?>"/>
                                 </a>
                             </td>
                             <td style="border-bottom: 1px solid white;" align="left" ><a href="./editor.php?diagramId=<?=$myDiagram->id ?>"><span class="formLabel"><?=$myDiagram->title ?></span></a></td>
